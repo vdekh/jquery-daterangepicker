@@ -1,0 +1,453 @@
+@charset "utf-8";
+
+
+/***************************************************************************************************
+ * DateRangePicker
+ **************************************************************************************************/
+
+
+.DateRangePicker {
+    display: block;
+    width: 100%;
+    position: relative;
+    z-index: 9;
+}
+.DateRangePicker.active {
+    z-index: 10;
+}
+.DateRangePickerMobile {
+    display: none;
+}
+
+
+@media (max-width: 980px) {
+.DateRangePicker {
+    display: none;
+}
+.DateRangePicker.active {
+    display: block;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+
+    height: 100%;
+    background: #fff;
+    overflow-y: scroll;
+}
+.DateRangePickerMobile {
+    display: block;
+    font-size: 16px;
+    line-height: 24px;
+    min-height: 42px;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    border-radius: 4px;
+}
+.DateRangePickerMobile .header-mob {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    min-width: 200px;
+}
+}
+
+
+/***************************************************************************************************
+ * DateRangePickerInput
+ **************************************************************************************************/
+
+
+.DateRangePicker .DateRangePickerInput {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.DateRangePicker.active .DateRangePickerInput {
+    box-shadow: 0px 1px 0px #3399cc;
+    position: relative;
+    z-index: 2;
+}
+.DateRangePicker .DateRangePickerInput .DateInput {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0px 10px 0px 0px;
+    position: relative;
+}
+
+
+.DateRangePicker .DateRangePickerInput label {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    margin: 0px 0px 5px 0px;
+}
+.DateRangePicker .DateRangePickerInput .close {
+    display: none;
+
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 1;
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    padding: 8px 26px;
+    background-color: #e5e5e5;
+    border-top: none;
+    border-right: none;
+
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-bottom-left-radius: 4px;
+}
+.DateRangePicker .DateRangePickerInput .close svg {
+    display: block;
+    width: 12px;
+    height: 12px;
+}
+.DateRangePicker .DateRangePickerInput .close .close-icon {
+    color: #999;
+}
+.DateRangePicker .DateRangePickerInput .to {
+    display: inline-block;
+    vertical-align: top;
+    width: 24px;
+    margin-right: 10px;
+    padding-top: 5px;
+    color: #333;
+}
+.DateRangePicker .DateRangePickerInput .to svg {
+    display: block;
+}
+.DateRangePicker .DateRangePickerInput .clear {
+    float: right;
+    width: 12px;
+    height: 24px;
+    padding: 0px 6px;
+    color: #999;
+    cursor: pointer;
+    display: none;
+}
+.DateRangePicker .DateRangePickerInput .clear:hover {
+    color: #f23366;
+}
+.DateRangePicker .DateRangePickerInput .clear svg {
+    display: block;
+    width: 12px;
+    height: 24px;
+}
+
+
+.DateRangePicker .DateRangePickerInput .DateInput span {
+    float: left;
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 18px;
+    cursor: pointer;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+}
+.DateRangePicker .DateRangePickerInput .DateInput.active span {
+    color: #3399cc;
+}
+.DateRangePicker .DateRangePickerInput .DateInput input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: none;
+
+    filter:alpha(opacity=0);
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+}
+
+
+@media (max-width: 980px) {
+.DateRangePicker .DateRangePickerInput {
+    display: none;
+}
+.DateRangePicker .DateRangePickerInput label {
+    margin: 0px 0px 10px 0px;
+}
+.DateRangePicker.active .DateRangePickerInput {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    display: block;
+    background: #fff;
+    box-shadow: inset 0px -1px 0px 0px #e5e5e5;
+}
+.DateRangePicker .DateRangePickerInput .text {
+    margin: 0px 0px 20px 0px;
+}
+.DateRangePicker .DateRangePickerInput .close {
+    display: block;
+}
+}
+
+
+/***************************************************************************************************
+ * DateRangePickerCalendar
+ **************************************************************************************************/
+
+
+.DateRangePicker .DateRangePickerCalendar {
+    display: none;
+    width: 566px;
+    height: 319px;
+    box-shadow: inset 0px 0px 0px 1px #e5e5e5;
+    margin: 0px;
+    padding: 10px 0px;
+    background: #fff;
+    text-align: center;
+    overflow: hidden;
+
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    z-index: 1;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius-topleft: 0;
+    border-radius: 4px;
+    border-top-left-radius: 0;
+
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+.DateRangePicker.active .DateRangePickerCalendar {
+    display: block;
+}
+
+.DateRangePicker .DateRangePickerCalendar .button {
+    position: absolute;
+    top: 20px;
+    z-index: 3;
+
+    width: 36px;
+    height: 29px;
+    border: 1px solid #cccccc;
+    background: #fff;
+    cursor: pointer;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    border-radius: 4px;
+}
+.DateRangePicker .DateRangePickerCalendar .button:hover {
+    border-color: #ccc;
+}
+.DateRangePicker .DateRangePickerCalendar .button-left {
+    left: 20px;
+}
+.DateRangePicker .DateRangePickerCalendar .button-right {
+    right: 20px;
+}
+.DateRangePicker .DateRangePickerCalendar .button-top,
+.DateRangePicker .DateRangePickerCalendar .button-bottom {
+    display: none;
+}
+.DateRangePicker .DateRangePickerCalendar .button svg {
+    width: 18px;
+    height: 11px;
+    vertical-align: top;
+    margin-top: 8px;
+}
+.DateRangePicker .DateRangePickerCalendar .button .button-icon {
+    color: #333;
+}
+
+
+.DateRangePicker .DateRangePickerCalendar .DateRangePickerCalendarContainer {
+    position: absolute;
+    top: 10px;
+    left: -263px;
+    z-index: 2;
+
+    float: left;
+    width: 1092px;
+    text-align: left;
+    font-size: 0px;
+}
+.DateRangePicker .DateRangePickerCalendar table {
+    display: inline-block;
+    vertical-align: top;
+    width: 253px;
+    margin: 10px;
+    padding: 0px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: center;
+}
+.DateRangePicker .DateRangePickerCalendar table caption {
+    width: 100%;
+    line-height: 29px;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0px 0px 10px 0px;
+}
+.DateRangePicker .DateRangePickerCalendar table th {
+    width: 37px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #999;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.DateRangePicker .DateRangePickerCalendar td {
+    width: 36px;
+    height: 35px;
+    font-size: 15px;
+    line-height: 33px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.DateRangePicker .DateRangePickerCalendar td.valid,
+.DateRangePicker .DateRangePickerCalendar td.inactive {
+    border: 1px solid #e4e7e7;
+}
+.DateRangePicker .DateRangePickerCalendar td.valid {
+    cursor: pointer;
+}
+.DateRangePicker .DateRangePickerCalendar td.valid:hover {
+    background: #cccccc;
+}
+.DateRangePicker .DateRangePickerCalendar td.today {
+    color: #666;
+}
+.DateRangePicker .DateRangePickerCalendar td.inactive {
+    color: #ccc;
+}
+
+
+.DateRangePicker .DateRangePickerCalendar td.valid.intermediate,
+.DateRangePicker .DateRangePickerCalendar td.valid.intermediate-hover,
+.DateRangePicker .DateRangePickerCalendar td.valid.hovered {
+    background: #83c6e7;
+    border: 1px double #56aed9;
+    color: #fff;
+}
+.DateRangePicker .DateRangePickerCalendar td.valid.intermediate-hover,
+.DateRangePicker .DateRangePickerCalendar td.valid.hovered {
+    color: #3399cc;
+}
+.DateRangePicker .DateRangePickerCalendar td.valid.start,
+.DateRangePicker .DateRangePickerCalendar td.valid.end {
+    background: #3399cc;
+    border: 1px double #3399cc;
+    color: #fff;
+}
+
+
+@media (max-width: 980px) {
+.DateRangePicker .DateRangePickerCalendar {
+    top: 60px;
+
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    box-shadow: none;
+
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.DateRangePicker .DateRangePickerCalendar .button {
+    position: relative;
+    top: 0px;
+    height: 44px;
+    border: none;
+}
+.DateRangePicker .DateRangePickerCalendar .button-left,
+.DateRangePicker .DateRangePickerCalendar .button-right {
+    display: none;
+}
+.DateRangePicker .DateRangePickerCalendar .button-top,
+.DateRangePicker .DateRangePickerCalendar .button-bottom {
+    display: block;
+    float: left;
+    width: 100%;
+}
+.DateRangePicker .DateRangePickerCalendar .button svg {
+    width: 42px;
+    height: 22px;
+    margin-top: 20px;
+}
+.DateRangePicker .DateRangePickerCalendar .button .button-icon {
+    color: #333;
+}
+.DateRangePicker .DateRangePickerCalendar .button-bottom svg {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.DateRangePicker .DateRangePickerCalendar .DateRangePickerCalendarContainer {
+    position: relative;
+    top: 0px;
+    left: 0px !important;
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding: 0px 20px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.DateRangePicker .DateRangePickerCalendar table {
+    display: table;
+    width: 100%;
+    margin: 20px 0px;
+}
+.DateRangePicker .DateRangePickerCalendar table caption {
+    margin: 0px;
+}
+.DateRangePicker .DateRangePickerCalendar table td {
+    padding: 4.5% 0;
+    line-height: 100%;
+}
+}
