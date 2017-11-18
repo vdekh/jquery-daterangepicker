@@ -1,0 +1,5 @@
+.git/*
+
+*.war
+*.jar
+*.ear
