@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>DateRangePicker</title>
+    <meta name="description" content="">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:300,400,700&amp;subset=cyrillic-ext" rel="stylesheet" />
+    <link href="../src/css/jquery.daterangepicker.css" rel="stylesheet" />
+
+    <style>
+        body {
+            color: #333;
+            font-family: "PT Sans",sans-serif;
+            -webkit-font-smoothing: antialiased;
+            font-size: 18px;
+            line-height: 1.444;
+            font-weight: 400;
+            width: 330px;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        @media (max-width: 480px) {
+            body {
+                width: 100%;
+            }
+        }
+        #form {
+            background: #fff;
+        }
+    </style>
+
+</head>
+<body>
+
+
+    <form id="form" method="get">
+
+        <div id="date_range_picker" class="date_range_picker">
+
+            <div class="values">
+                <div class="value date_at">
+                    <span class="date_at"></span>
+                    <input id="date_at" class="date_at" type="hidden" />
+                </div>
+                <div class="to"></div>
+                <div class="value date_to">
+                    <span class="date_to"></span>
+                    <input id="date_to" class="date_to" type="hidden" />
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="calendar">
+                <div class="button button-prev"></div>
+                <div class="button button-next"></div>
+                <div class="container"></div>
+            </div>
+
+        </div>
+
+    </form>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="../src/js/jquery.daterangepicker.js"></script>
+    <script>
+    $(window).load(function() {
+        $.DateRangePicker({
+            container: '#date_range_picker',
+
+            date_at: '2018-01-03',
+            date_to: '2018-02-12',
+
+            inactive: 1,
+
+            locale: 'ru-RU',
+            l: {
+                close: "Закрыть",
+                at: "Отъезд",
+                to: "Приезд",
+                days: ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"],
+                months: ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"],
+            }
+        });
+    });
+    </script>
+
+</body>
+</html>
